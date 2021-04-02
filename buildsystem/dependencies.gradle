@@ -1,0 +1,35 @@
+ext {
+
+    //Android
+    androidMinSdkVersion = 27
+    androidTargetSdkVersion = 30
+    androidCompileSdkVersion = 30
+    versionCode = 1
+    versionName = "1.0"
+
+    //Libraries
+    appCompactVersion = '1.1.0'
+    coreKtxVersion = '1.2.0'
+    constraintlayoutVersion = '1.1.3'
+    materialVersion = '1.1.0'
+
+    junitVersion = '4.12'
+    androidJunitVersion = '1.1.1'
+    espressoVersion = '3.2.0'
+
+    androidBasic = [
+            appCompact          : "androidx.appcompat:appcompat:${appCompactVersion}",
+            coreKtx             : "androidx.core:core-ktx:${coreKtxVersion}",
+            constraintlayout    : "androidx.constraintlayout:constraintlayout:${constraintlayoutVersion}",
+            material            : "com.google.android.material:material:${materialVersion}"
+    ]
+
+    test = [
+            junit   : "junit:junit:${junitVersion}"
+    ]
+
+    androidTest = [
+            junit    : "androidx.test.ext:junit:${androidJunitVersion}",
+            espresso : "androidx.test.espresso:espresso-core:${espressoVersion}"
+    ]
+}
