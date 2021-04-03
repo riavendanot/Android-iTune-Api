@@ -13,6 +13,10 @@ ext {
     constraintlayoutVersion = '1.1.3'
     materialVersion = '1.1.0'
 
+    retrofitVersion = '2.9.0'
+    gsonVersion = '2.8.6'
+    okhttpVersion = '4.9.1'
+
     junitVersion = '4.12'
     mockitoVersion = '3.7.7'
     androidJunitVersion = '1.1.1'
@@ -26,8 +30,18 @@ ext {
     ]
 
     navigationComponent = [
-            navFragment     :"androidx.navigation:navigation-fragment-ktx:$navVersion",
+            navFragment     : "androidx.navigation:navigation-fragment-ktx:$navVersion",
             navUI           : "androidx.navigation:navigation-ui-ktx:$navVersion"
+    ]
+
+    retrofit = [
+            retrofit    : "com.squareup.retrofit2:retrofit:${retrofitVersion}",
+            gson        : "com.squareup.retrofit2:converter-gson:${retrofitVersion}"
+    ]
+
+    okhttp = [
+            okhttp              : "com.squareup.okhttp3:okhttp:${okhttpVersion}",
+            okhttpInterceptor   : "com.squareup.okhttp3:logging-interceptor:${okhttpVersion}"
     ]
 
     test = [

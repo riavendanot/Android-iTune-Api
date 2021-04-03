@@ -12,13 +12,15 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.riavendanot.ituneapi.R
-import com.riavendanot.ituneapi.common.value
+import com.riavendanot.ituneapi.common.extension.value
 import com.riavendanot.ituneapi.databinding.FragmentHomeBinding
 import com.riavendanot.ituneapi.home.adapter.SearchAdapter
+import com.riavendanot.ituneapi.home.viewmodel.HomeViewModel
+import com.riavendanot.ituneapi.home.viewmodel.HomeViewModelFactory
 
 class HomeFragment: Fragment(R.layout.fragment_home) {
 
-    private val viewModel: HomeViewModel by viewModels()
+    private val viewModel: HomeViewModel by viewModels{ HomeViewModelFactory() }
     private val navHosFragment by lazy {
         findNavController()
     }

@@ -1,5 +1,6 @@
 package com.riavendanot.ituneapi.common
 
+import com.riavendanot.ituneapi.common.extension.value
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
