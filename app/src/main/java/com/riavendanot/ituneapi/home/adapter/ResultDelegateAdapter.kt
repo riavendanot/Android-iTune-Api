@@ -1,2 +1,42 @@
-package com.riavendanot.ituneapi.home.adapter.base
+package com.riavendanot.ituneapi.home.adapter
 
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
+import com.riavendanot.ituneapi.common.extension.loadImg
+import com.riavendanot.ituneapi.databinding.ItemSearchBinding
+import com.riavendanot.ituneapi.domain.entity.ResultDto
+import com.riavendanot.ituneapi.home.adapter.base.ViewType
+import com.riavendanot.ituneapi.home.adapter.base.ViewTypeDelegateAdapter
+
+class ResultDelegateAdapter(
+    private val viewAction: OnViewSelectedListener
+) : ViewTypeDelegateAdapter {
+
+    interface OnViewSelectedListener {
+        fun onItemSelected(item: ResultDto)
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup): RecyclerView.ViewHolder {
+        val binding = ItemSearchBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ResultHolder(binding)
+    }
+
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, item: ViewType, pos: Int) {
+        holder as ResultHolder
+        item as ResultDto
+        holder.bind(item, pos)
+        holder.itemView.setOnClickListener {
+            viewAction.onItemSelected(item)
+        }
+    }
+
+    private inner class ResultHolder(private val binding: ItemSearchBinding): RecyclerView.ViewHolder(binding.root) {
+        fun bind(item: ResultDto, pos: Int) {
+            binding.albumImageView.loadImg(item.artwork)
+            binding.artistTextView.text = pos.toString()//item.artistName
+            binding.trackTextView.text = item.trackName
+        }
+    }
+
+}

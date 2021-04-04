@@ -9,13 +9,13 @@ import com.riavendanot.ituneapi.databinding.ItemEmptyListBinding
 import com.riavendanot.ituneapi.home.adapter.base.ViewType
 import com.riavendanot.ituneapi.home.adapter.base.ViewTypeDelegateAdapter
 
-class EmptyErrorDelegateAdapter: ViewTypeDelegateAdapter {
+class EmptyDelegateAdapter: ViewTypeDelegateAdapter {
     override fun onCreateViewHolder(parent: ViewGroup): RecyclerView.ViewHolder {
         val binding = ItemEmptyListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return EmptyErrorHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, item: ViewType) {
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, item: ViewType, pos: Int) {
         holder as EmptyErrorHolder
         holder.bind()
     }

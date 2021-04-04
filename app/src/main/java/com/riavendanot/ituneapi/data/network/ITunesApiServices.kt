@@ -10,6 +10,7 @@ interface ITunesApiServices {
     suspend fun searchTerm(
         @Query("term") term: String,
         @Query("media") media: String = "music",
-        @Query("limit") limit: Int = 20
+        @Query("limit") limit: Int = 20,
+        @Query("offset") offset: Int
     ): SuccessResponse
 }

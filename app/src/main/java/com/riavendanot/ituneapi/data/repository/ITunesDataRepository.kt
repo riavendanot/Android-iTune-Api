@@ -15,10 +15,10 @@ class ITunesDataRepository(
     private val dispatcherIO: CoroutineDispatcher
 ): ITunesRepository {
 
-    override suspend fun searchTerms(terms: String): Resource<List<ResultDto>> {
+    override suspend fun searchTerms(terms: String, offset: Int): Resource<List<ResultDto>> {
         return withContext(dispatcherIO) {
             try {
-                val result = services.searchTerm(terms).resultList?.let {
+                val result = services.searchTerm(terms, offset).resultList?.let {
                     resultMapper.transformCollection(it)
                 } ?: emptyList()
                 Resource.Success(result)

@@ -6,5 +6,5 @@ import com.riavendanot.ituneapi.home.adapter.base.ViewType
 
 interface ViewTypeDelegateAdapter {
     fun onCreateViewHolder(parent: ViewGroup): RecyclerView.ViewHolder
-    fun onBindViewHolder(holder: RecyclerView.ViewHolder, item: ViewType)
+    fun onBindViewHolder(holder: RecyclerView.ViewHolder, item: ViewType, pos: Int = 0)
 }

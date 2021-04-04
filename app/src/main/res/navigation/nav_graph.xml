@@ -9,5 +9,27 @@
         android:id="@+id/homeFragment"
         android:name="com.riavendanot.ituneapi.home.HomeFragment"
         android:label="iTunes Api"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/actionHomeToDetail"
+            app:destination="@id/detailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.riavendanot.ituneapi.detail.DetailFragment"
+        tools:layout="@layout/fragment_detail">
+        <argument
+            android:name="result"
+            app:argType="com.riavendanot.ituneapi.domain.entity.ResultDto" />
+    </fragment>
+    <dialog
+        android:id="@+id/errorDialogFragment"
+        android:name="com.riavendanot.ituneapi.dialog.ErrorDialogFragment"
+        android:label="ErrorDialogFragment"
+        tools:layout="@layout/dialog_error">
+    </dialog>
 </navigation>

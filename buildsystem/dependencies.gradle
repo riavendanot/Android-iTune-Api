@@ -30,8 +30,8 @@ ext {
     ]
 
     navigationComponent = [
-            navFragment     : "androidx.navigation:navigation-fragment-ktx:$navVersion",
-            navUI           : "androidx.navigation:navigation-ui-ktx:$navVersion"
+            navFragment     : "androidx.navigation:navigation-fragment-ktx:${navVersion}",
+            navUI           : "androidx.navigation:navigation-ui-ktx:${navVersion}"
     ]
 
     retrofit = [

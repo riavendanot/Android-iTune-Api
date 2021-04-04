@@ -3,4 +3,7 @@
     <string name="search_a_term">search a term</string>
     <string name="term_not_fount">term not found</string>
     <string name="action_search">search</string>
+    <string name="error_title">Something went wrong</string>
+    <string name="error_detail">%s</string>
+    <string name="error_close_btn">close</string>
 </resources>
