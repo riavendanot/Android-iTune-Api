@@ -11,5 +11,5 @@ fun ImageView.loadImg(url: String) {
             .centerCrop()
             .placeholder(R.drawable.ic_launcher_foreground)
             .error(R.drawable.ic_launcher_background)
-            .into(this);
+            .into(this)
 }

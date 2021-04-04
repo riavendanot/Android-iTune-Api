@@ -11,8 +11,7 @@ class ResultResponseToResultMapper: Transform<ResultResponse, ResultDto>() {
             artwork = value.artwork.value(),
             albumName = value.albumName.value(),
             artistName = value.artistName.value(),
-            trackName = value.trackName.value(),
-            preview = value.preview.value()
+            albumId = value.albumId.value()
         )
     }
 }

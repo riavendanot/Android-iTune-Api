@@ -1,6 +1,5 @@
-package com.riavendanot.ituneapi.home.viewmodel
+package com.riavendanot.ituneapi.home
 
-import android.util.Log
 import androidx.lifecycle.*
 import com.riavendanot.ituneapi.common.Resource
 import com.riavendanot.ituneapi.common.constant.StringConstant.EMPTY_STRING

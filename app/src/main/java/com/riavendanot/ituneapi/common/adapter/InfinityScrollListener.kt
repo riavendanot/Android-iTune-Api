@@ -1,4 +1,4 @@
-package com.riavendanot.ituneapi.home.adapter.base
+package com.riavendanot.ituneapi.common.adapter
 
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView

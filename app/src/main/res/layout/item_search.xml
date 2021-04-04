@@ -33,11 +33,11 @@
         app:layout_constraintStart_toEndOf="@id/albumImageView"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/trackTextView"
+        app:layout_constraintBottom_toTopOf="@id/albumTextView"
         tools:text="Artist name"/>
 
     <TextView
-        android:id="@+id/trackTextView"
+        android:id="@+id/albumTextView"
         android:layout_width="@dimen/ui_size_0"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_8"

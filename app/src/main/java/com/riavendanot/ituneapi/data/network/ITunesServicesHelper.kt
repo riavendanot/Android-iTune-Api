@@ -4,4 +4,6 @@ class ITunesServicesHelper(
     private val services: ITunesApiServices
 ) {
     suspend fun searchTerm(term: String, offset: Int) = services.searchTerm(term = term, offset = offset)
+
+    suspend fun tracks(albumId: String) = services.tracks(albumId)
 }

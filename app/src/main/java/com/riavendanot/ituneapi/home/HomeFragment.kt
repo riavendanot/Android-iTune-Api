@@ -20,13 +20,12 @@ import com.riavendanot.ituneapi.dialog.ErrorDialogFragment
 import com.riavendanot.ituneapi.domain.entity.ResultDto
 import com.riavendanot.ituneapi.home.adapter.ResultDelegateAdapter
 import com.riavendanot.ituneapi.home.adapter.SearchAdapter
-import com.riavendanot.ituneapi.home.adapter.base.InfinityScrollListener
-import com.riavendanot.ituneapi.home.viewmodel.HomeViewModel
-import com.riavendanot.ituneapi.home.viewmodel.HomeViewModelFactory
+import com.riavendanot.ituneapi.common.adapter.InfinityScrollListener
+import com.riavendanot.ituneapi.common.ITunesViewModelFactory
 
 class HomeFragment: Fragment(R.layout.fragment_home) {
 
-    private val viewModel: HomeViewModel by viewModels{ HomeViewModelFactory() }
+    private val viewModel: HomeViewModel by viewModels{ ITunesViewModelFactory() }
     private val navHosFragment by lazy {
         findNavController()
     }
@@ -116,9 +115,11 @@ class HomeFragment: Fragment(R.layout.fragment_home) {
             layoutManager = linearLayout
             adapter = searchAdapter
             clearOnScrollListeners()
-            addOnScrollListener(InfinityScrollListener(
-                { viewModel.requestTerm() },
-                linearLayout)
+            addOnScrollListener(
+                InfinityScrollListener(
+                    { viewModel.requestTerm() },
+                    linearLayout
+                )
             )
         }
     }

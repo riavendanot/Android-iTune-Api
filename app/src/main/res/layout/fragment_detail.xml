@@ -31,17 +31,35 @@
         app:layout_constraintTop_toBottomOf="@id/artworkImageView"
         tools:text="album name" />
 
-    <TextView
-        android:id="@+id/trackTextView"
-        android:layout_width="@dimen/ui_size_0"
+    <Button
+        android:id="@+id/playPauseButton"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:maxLines="2"
-        android:textAlignment="center"
-        android:textSize="@dimen/text_size_18"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Play"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/albumTextView"
-        tools:text="track name" />
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/songsRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ui_size_0"
+        android:layout_margin="@dimen/margin_8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/playPauseButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_track"
+        tools:itemCount="5"/>
+
+    <ProgressBar
+        android:id="@+id/detailProgress"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ui_size_0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/playPauseButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,14 +6,15 @@ import com.riavendanot.ituneapi.common.mapper.Transform
 import com.riavendanot.ituneapi.common.ITunesMocks
 import com.riavendanot.ituneapi.data.network.ITunesServicesHelper
 import com.riavendanot.ituneapi.data.network.response.ResultResponse
+import com.riavendanot.ituneapi.data.network.response.TrackResponse
 import com.riavendanot.ituneapi.domain.entity.ResultDto
+import com.riavendanot.ituneapi.domain.entity.TrackDto
 import com.riavendanot.ituneapi.domain.repository.ITunesRepository
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertTrue
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mockito.ArgumentMatchers.anyList
-import org.mockito.ArgumentMatchers.anyString
+import org.mockito.ArgumentMatchers.*
 import org.mockito.Mock
 import org.mockito.Mockito.`when`
 import org.mockito.Mockito.doThrow
@@ -28,9 +29,12 @@ class ITunesDataRepositoryTest {
     @Mock
     private lateinit var resultMapper: Transform<ResultResponse, ResultDto>
 
+    @Mock
+    private lateinit var trackMapper: Transform<TrackResponse, TrackDto>
+
 
     private val repository: ITunesRepository by lazy {
-        ITunesDataRepository(services, resultMapper, CoroutinesContextProviderTest().io)
+        ITunesDataRepository(services, resultMapper, trackMapper, CoroutinesContextProviderTest().io)
     }
 
     private val mock = ITunesMocks
@@ -38,10 +42,10 @@ class ITunesDataRepositoryTest {
     @Test
     fun `Search a term - Success`(){
         runBlocking {
-            `when`(services.searchTerm(anyString())).thenReturn(mock.getSuccessResponse())
+            `when`(services.searchTerm(anyString(), anyInt())).thenReturn(mock.getSuccessResponse())
             `when`(resultMapper.transformCollection(anyList())).thenReturn(listOf(mock.getResultDto()))
 
-            val result = repository.searchTerms(anyString())
+            val result = repository.searchTerms(anyString(), anyInt())
             assertTrue(result is Resource.Success<List<ResultDto>>)
         }
     }
@@ -51,7 +55,7 @@ class ITunesDataRepositoryTest {
         runBlocking {
             doThrow(Throwable("Error")).`when`(services)
 
-            val result = repository.searchTerms(anyString())
+            val result = repository.searchTerms(anyString(), anyInt())
             assertTrue(result is Resource.Failure)
         }
     }

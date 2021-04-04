@@ -5,6 +5,7 @@ import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.mockito.ArgumentMatchers
 import org.mockito.Mock
 import org.mockito.Mockito.*
 import org.mockito.junit.MockitoJUnitRunner
@@ -25,11 +26,12 @@ class ITunesServicesHelperTest {
     fun `Service success`(){
         runBlocking {
             `when`(services.searchTerm(
-                    term = anyString(),
-                    media = anyString(),
-                    limit = anyInt())).thenReturn(mock.getSuccessResponse())
+                term = anyString(),
+                media = anyString(),
+                limit = anyInt(),
+                offset = anyInt())).thenReturn(mock.getSuccessResponse())
 
-            val result = helper.searchTerm("")
+            val result = helper.searchTerm("", 20)
             assertEquals(mock.getSuccessResponse(), result)
         }
     }
